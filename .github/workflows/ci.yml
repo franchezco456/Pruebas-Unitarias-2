@@ -1,0 +1,33 @@
+# Nombre del flujo
+name: "Revisar Código y Probar"
+
+# Se ejecuta en cada 'push' a la rama 'main'
+on: [push]
+
+# Define los trabajos
+jobs:
+  # Un único trabajo llamado 'build-and-test'
+  build-and-test:
+    # Se ejecutará en una máquina virtual con Ubuntu
+    runs-on: ubuntu-latest
+
+    # Estos son los pasos que ejecutará
+    steps:
+      # 1. Clona tu repositorio en la máquina virtual
+      - name: "Clonar el código"
+        uses: actions/checkout@v3
+
+      # 2. Configura el entorno de Java 17
+      - name: "Configurar Java"
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # 3. Compila, prueba Y empaqueta la aplicación en un .jar
+      - name: "Construir y Probar con Maven"
+        run: mvn -B package # El comando 'package' también ejecuta los tests
+
+      # 4. Ejecuta la aplicación empaquetada desde la terminal
+      - name: "Ejecutar la aplicación"
+        run: java -jar target/main.jar
