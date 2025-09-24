@@ -7,9 +7,9 @@ public class Main {
         Calculadora c = new Calculadora();
         Integer a = 12;
         Integer b = 4;
-        IO.println(c.Suma(a,b));
-        IO.println(c.Resta(a,b));
-        IO.println(c.Multiplicacion(a,b));
-        IO.println(c.Division(a,b));
+        System.out.println(c.Suma(a,b));
+        System.out.println(c.Resta(a,b));
+        System.out.println(c.Multiplicacion(a,b));
+        System.out.println(c.Division(a,b));
     }
 }
