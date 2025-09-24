@@ -30,4 +30,4 @@ jobs:
 
       # 4. Ejecuta la aplicación empaquetada desde la terminal
       - name: "Ejecutar la aplicación"
-        run: java -jar target/main.jar
+        run: java -jar target/Main.jar
